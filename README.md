@@ -16,3 +16,6 @@ output {
   width: 0.77rem; 
 }
 ```
+### Initialization
+Function **must be initialized via `setInterval()`** and not via `mutationObserver()`. This is very important cause putting it 
+inside the `mutationObserver()` would result in **infinite loop**.
