@@ -14,11 +14,16 @@ function dynamicIndent() {
 function checkWord1(nodeList) {
     if (nodeList) {
         for (const element of nodeList) {
+            // Breaking the sentence into an array of words
             const words = element.innerHTML.split(' ');
+            // Checking if the first word is a number
             const word1NumCheck = !isNaN(parseFloat(words[0]));
 
             if (word1NumCheck) {
+                // Looping through all the words
                 const formated = words.map((word, index) => {
+                    // Wrapping the first word into <output> html tag
+                    // output will need to have width and display: inline-block set in CSS
                     if (index === 0) {
                         return `<output>${word}</output>`;
                     } else {
@@ -26,6 +31,7 @@ function checkWord1(nodeList) {
                     }
                 }).join(' ');
 
+                // Injecting the formated sentence back to it's container
                 element.innerHTML = formated;
             }
         }
